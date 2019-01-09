@@ -1,24 +1,9 @@
 node{
-          stage('Checkout'){
-            //Checkout the code from a GitHub repository
-            
-		  git 'https://github.com/Suresh498/Branching.git'
-          }
-          stage('build'){
-            def mvnhome = tool name: 'M2_HOME', type: 'maven'
-		  sh "${mvhome}/bin/mvn package"
-          }
-          stage('test'){
-		  def mvnhome = tool name: 'M2_HOME', type: 'maven'
-		  sh "${mvhome}/bin/mvn test"
-          }
+	stage('SCM Checkout'){
+	git 'https://github.com/Suresh498/Branching.git'
+	}
+	stage('Compile-package'){
+	def mvnhome = tool name: 'M2_HOME', type: 'maven'
+		sh "${mvnhome}/bin/mvn package"
+	}
 }
-																							                   }
-																									   	stage('Install stage') 
-																												{
-																												            steps {
-																													    				sh 'mvn install'
-																																			  }
-																																			  		 }
-																																					 	}
-																																						}
