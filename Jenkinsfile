@@ -1,4 +1,4 @@
-pipeline{
+node{
           stage('Checkout'){
             //Checkout the code from a GitHub repository
             
@@ -11,7 +11,6 @@ pipeline{
           stage('test'){
 		  def mvnhome = tool name: 'M2_HOME', type: 'maven'
 		  sh "${mvhome}/bin/mvn test"
-            
           }
 }															                  }
 																							                   }
