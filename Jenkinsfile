@@ -1,18 +1,15 @@
-pipeline {
-    agent any
-            tools{
-	                    maven 'MAVEN-3.3.9'
-			    	     }
-				         stages {
-					 	stage('Compile') {
-						            steps {
-							    				sh 'mvn clean compile'
-											                  }
-													                   }
-															   	stage('Testing stage') {
-																            steps {
-																	    				sh 'mvn test'
-																					                  }
+pipeline{
+          stage('Checkout'){
+            //Checkout the code from a GitHub repository
+            git credentialsId: 'suresh498', url: https://github.com/Suresh498/Branching.git
+          }
+          stage('build'){
+            sh 'mvn -V clean compile'
+          }
+          stage('test'){
+            sh 'mvn -V clean test'
+          }
+}															                  }
 																							                   }
 																									   	stage('Install stage') 
 																												{
