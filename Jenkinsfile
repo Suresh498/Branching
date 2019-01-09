@@ -5,11 +5,11 @@ pipeline{
 		  git 'https://github.com/Suresh498/Branching.git'
           }
           stage('build'){
-            def mvnhome=tool name: 'M2_HOME', type: 'maven'
+            def mvnhome = tool name: 'M2_HOME', type: 'maven'
 		  sh "${mvhome}/bin/mvn package"
           }
           stage('test'){
-		  def mvnhome=tool name: 'M2_HOME', type: 'maven'
+		  def mvnhome = tool name: 'M2_HOME', type: 'maven'
 		  sh "${mvhome}/bin/mvn test"
             
           }
