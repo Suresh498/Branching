@@ -1,14 +1,17 @@
 pipeline{
           stage('Checkout'){
             //Checkout the code from a GitHub repository
-            tool name: 'M2_HOME', type: 'maven'
+            
 		  git 'https://github.com/Suresh498/Branching.git'
           }
           stage('build'){
-            sh 'mvn -V clean compile'
+            def mvnhome=tool name: 'M2_HOME', type: 'maven'
+		  sh "${mvhome}/bin/mvn package"
           }
           stage('test'){
-            sh 'mvn -V clean test'
+		  def mvnhome=tool name: 'M2_HOME', type: 'maven'
+		  sh "${mvhome}/bin/mvn test"
+            
           }
 }															                  }
 																							                   }
