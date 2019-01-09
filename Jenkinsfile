@@ -2,7 +2,7 @@ pipeline{
           stage('Checkout'){
             //Checkout the code from a GitHub repository
             tool name: 'M2_HOME', type: 'maven'
-		  git https://github.com/TechPrimers/jenkins-example.git
+		  git 'https://github.com/Suresh498/Branching.git'
           }
           stage('build'){
             sh 'mvn -V clean compile'
