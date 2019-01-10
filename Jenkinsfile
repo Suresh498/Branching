@@ -1,6 +1,7 @@
 node{
 	stage('SCM Checkout'){
-	git 'https://github.com/Suresh498/Branching.git'
+	git poll: true url: 'https://github.com/Suresh498/Branching.git'
+		properties([pipelineTriggers([pollSCM('* * * * *')])])
 	}
 	stage('Compile-package'){
 	def mvnhome = tool name: 'M2_HOME', type: 'maven'
