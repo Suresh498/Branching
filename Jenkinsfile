@@ -1,6 +1,6 @@
 node{
 	stage('SCM Checkout'){
-	git poll: true url: 'https://github.com/Suresh498/Branching.git'
+	git poll: true, url: 'https://github.com/Suresh498/Branching.git'
 		properties([pipelineTriggers([pollSCM('* * * * *')])])
 	}
 	stage('Compile-package'){
